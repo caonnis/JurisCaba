@@ -16,16 +16,16 @@ import {
   Calendar,
   Award,
   Clock,
-  PhoneIcon as Whatsapp,
-  ChevronDown,
-  ChevronUp,
   CheckCircle,
 } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { AnimatedCounter } from "@/components/animated-counter"
-import { WhatsappButton } from "@/components/whatsapp-button" // Importar el botón de WhatsApp
-import { useScrollAnimation } from "@/hooks/use-scroll-animation" // Importar el hook de animación
+import { WhatsappButton } from "@/components/whatsapp-button"
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { Logo } from "@/components/logo" // Importar el componente Logo
+import { MobileNav } from "@/components/mobile-nav" // Importar el nuevo componente MobileNav
+import { ChevronDown, ChevronUp } from "lucide-react" // Asegúrate de que estos estén importados
 
 const services = [
   {
@@ -120,7 +120,6 @@ function ServiceCard({
   onClick: () => void
 }) {
   const Icon = service.icon
-  // Selecciona el icono de chevron según el estado de la tarjeta
   const ChevronIcon = isActive ? ChevronUp : ChevronDown
 
   return (
@@ -128,7 +127,7 @@ function ServiceCard({
       className={`cursor-pointer transition-all duration-300 border-0 shadow-md hover:shadow-xl hover:-translate-y-1 ${
         isActive ? "shadow-2xl ring-2 ring-blue-500 ring-opacity-20" : ""
       }`}
-      onClick={onClick} // Toda la tarjeta es clickeable para expandir/colapsar
+      onClick={onClick}
     >
       <CardHeader className="p-6 text-center">
         <div className="flex flex-col items-center space-y-4">
@@ -146,10 +145,9 @@ function ServiceCard({
         </div>
       </CardHeader>
 
-      {/* Contenido expandible */}
       <div
         className={`overflow-hidden transition-all duration-300 ${
-          isActive ? "max-h-[550px] opacity-100" : "max-h-0 opacity-0" // Aumentado max-h para que el botón sea visible
+          isActive ? "max-h-[550px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <CardContent className="px-6 pb-6 space-y-6">
@@ -178,15 +176,14 @@ function ServiceCard({
         </CardContent>
       </div>
 
-      {/* Indicador de expansión (siempre visible) */}
       <div className="px-6 pb-4">
         <div className="flex items-center justify-center">
           <div
             className={`flex items-center space-x-1 text-xs text-slate-500 transition-all duration-300 ${
-              !isActive ? "animate-bounce" : "" // Animación solo cuando está cerrado
+              !isActive ? "animate-bounce" : ""
             }`}
           >
-            <ChevronIcon className="h-4 w-4" /> {/* Usamos el icono Chevron dinámico */}
+            <ChevronIcon className="h-4 w-4" />
           </div>
         </div>
       </div>
@@ -194,30 +191,9 @@ function ServiceCard({
   )
 }
 
-function Logo() {
-  return (
-    <div className="flex items-center space-x-3">
-      <div className="relative">
-        <div className="w-10 h-10 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl flex items-center justify-center shadow-lg">
-          <Scale className="h-6 w-6 text-white" />
-        </div>
-        <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-          <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-        </div>
-      </div>
-      <div className="flex flex-col">
-        <span className="text-2xl font-bold text-slate-900 leading-none">Juris</span>
-        <span className="text-xs font-medium text-slate-500 uppercase tracking-wider leading-none">CABA</span>
-      </div>
-    </div>
-  )
-}
-
 export default function JurisCabaLanding() {
-  // `activeService` gestiona qué tarjeta está abierta. Solo una puede estar activa a la vez.
   const [activeService, setActiveService] = useState<number | null>(null)
 
-  // Hooks para animaciones al scroll
   const { ref: heroRef, isInView: heroInView } = useScrollAnimation<HTMLElement>(0.2)
   const { ref: servicesRef, isInView: servicesInView } = useScrollAnimation<HTMLElement>(0.1)
   const { ref: ctaRef, isInView: ctaInView } = useScrollAnimation<HTMLElement>(0.1)
@@ -228,8 +204,10 @@ export default function JurisCabaLanding() {
       {/* Header */}
       <header className="border-b border-slate-200 bg-white/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/80 sticky top-0 z-50">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Logo />
+          <Logo /> {/* Usar el componente Logo */}
           <nav className="hidden md:flex items-center space-x-8">
+            {" "}
+            {/* Navegación de escritorio */}
             <Link href="#servicios" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
               Servicios
             </Link>
@@ -246,6 +224,7 @@ export default function JurisCabaLanding() {
               Agendar Consulta
             </Button>
           </nav>
+          <MobileNav /> {/* Menú de hamburguesa para móvil */}
         </div>
       </header>
 
@@ -258,7 +237,6 @@ export default function JurisCabaLanding() {
       >
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center space-y-12">
-            {/* Main Content */}
             <div className="space-y-8">
               <div className="space-y-6">
                 <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium">
@@ -277,7 +255,6 @@ export default function JurisCabaLanding() {
                 </p>
               </div>
 
-              {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
                   size="lg"
@@ -299,7 +276,6 @@ export default function JurisCabaLanding() {
               </div>
             </div>
 
-            {/* Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
               <div className="text-center space-y-2">
                 <div className="text-4xl font-bold text-blue-600">
@@ -317,9 +293,7 @@ export default function JurisCabaLanding() {
               </div>
             </div>
 
-            {/* Trust Indicators */}
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm text-slate-600">
-              {/* Eliminado "Primera consulta gratuita" */}
               <div className="flex items-center space-x-2">
                 <Clock className="h-4 w-4" />
                 <span>Respuesta en 24hs</span>
@@ -347,7 +321,7 @@ export default function JurisCabaLanding() {
               <Scale className="h-4 w-4" />
               <span>Nuestras especialidades</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">Áreas de práctica</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold text-blue-600 tracking-tight">Áreas de práctica</h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Hacé click en cada servicio para conocer más detalles sobre cómo podemos ayudarte.
             </p>
@@ -426,7 +400,6 @@ export default function JurisCabaLanding() {
       >
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-12 items-start justify-items-center text-center lg:text-left">
-            {/* Logo and Description */}
             <div className="space-y-6 lg:col-span-1">
               <div className="flex justify-center lg:justify-start">
                 <Logo />
@@ -437,18 +410,16 @@ export default function JurisCabaLanding() {
               </p>
             </div>
 
-            {/* Contacto */}
             <div className="space-y-6 lg:col-span-1">
               <h3 className="text-xl font-bold text-slate-900">Contacto</h3>
               <div className="space-y-4">
-                {/* Iconos de contacto horizontales */}
                 <div className="flex items-center justify-center lg:justify-start space-x-4">
                   <Link
-                    href="https://wa.me/5491112345678"
+                    href="https://wa.me/5491161179711"
                     className="p-3 bg-slate-100 rounded-xl hover:bg-slate-200 text-slate-700 transition-all duration-300 shadow-md hover:shadow-lg"
                     target="_blank"
                   >
-                    <Whatsapp className="h-5 w-5" />
+                    <Phone className="h-5 w-5" /> {/* Usar Phone de Lucide para WhatsApp */}
                   </Link>
                   <Link
                     href="https://instagram.com/juriscaba"
@@ -465,7 +436,6 @@ export default function JurisCabaLanding() {
                   </Link>
                 </div>
 
-                {/* Ubicación */}
                 <div className="flex items-center justify-center lg:justify-start space-x-3 pt-2">
                   <div className="p-2 bg-slate-100 rounded-lg">
                     <MapPin className="h-5 w-5 text-slate-700" />
@@ -475,7 +445,6 @@ export default function JurisCabaLanding() {
               </div>
             </div>
 
-            {/* Información General / Horarios */}
             <div className="space-y-6 lg:col-span-1">
               <h3 className="text-xl font-bold text-slate-900">Información General</h3>
               <div className="space-y-3 text-slate-600">
@@ -509,7 +478,6 @@ export default function JurisCabaLanding() {
         </div>
       </footer>
 
-      {/* Botón flotante de WhatsApp */}
       <WhatsappButton />
     </div>
   )
