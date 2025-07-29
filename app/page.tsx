@@ -19,13 +19,15 @@ import {
   CheckCircle,
 } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { AnimatedCounter } from "@/components/animated-counter"
 import { WhatsappButton } from "@/components/whatsapp-button"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { Logo } from "@/components/logo" // Importar el componente Logo
 import { MobileNav } from "@/components/mobile-nav" // Importar el nuevo componente MobileNav
 import { ChevronDown, ChevronUp } from "lucide-react" // Asegúrate de que estos estén importados
+// Remove the import for RotatingStats
+// import { RotatingStats } from "@/components/rotating-stats"
 
 const services = [
   {
@@ -199,6 +201,49 @@ export default function JurisCabaLanding() {
   const { ref: ctaRef, isInView: ctaInView } = useScrollAnimation<HTMLElement>(0.1)
   const { ref: footerRef, isInView: footerInView } = useScrollAnimation<HTMLElement>(0.1)
 
+  const rotatingStatsData = [
+    {
+      id: "cases",
+      value: <AnimatedCounter from={0} to={500} duration={2000} suffix="+" />,
+      label: "Casos exitosos",
+    },
+    {
+      id: "experience",
+      value: "15+",
+      label: "Años de experiencia",
+    },
+    {
+      id: "urgency",
+      value: "24/7",
+      label: "Atención urgencias",
+    },
+  ]
+
+  // Add state and effect for the rotating text in the hero badge
+  // Add these lines inside the JurisCabaLanding component, before the return statement:
+  const rotatingHeroTexts = [
+    { icon: Award, text: "15+ años de experiencia legal" },
+    { icon: CheckCircle, text: "500+ casos exitosos" },
+    { icon: Clock, text: "Atención 24/7 para urgencias" },
+  ]
+  const [currentHeroTextIndex, setCurrentHeroTextIndex] = useState(0)
+  const [heroTextAnimation, setHeroTextAnimation] = useState("animate-fade-in")
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroTextAnimation("opacity-0") // Start fade out
+      setTimeout(() => {
+        setCurrentHeroTextIndex((prevIndex) => (prevIndex + 1) % rotatingHeroTexts.length)
+        setHeroTextAnimation("animate-fade-in") // Start fade in
+      }, 300) // Duration of fade-out
+    }, 3000) // Change text every 3 seconds
+
+    return () => clearInterval(interval)
+  }, [rotatingHeroTexts.length])
+
+  const CurrentHeroIcon = rotatingHeroTexts[currentHeroTextIndex].icon
+  const currentHeroText = rotatingHeroTexts[currentHeroTextIndex].text
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -208,13 +253,13 @@ export default function JurisCabaLanding() {
           <nav className="hidden md:flex items-center space-x-8">
             {" "}
             {/* Navegación de escritorio */}
-            <Link href="#servicios" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
+            <Link href="#servicios" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">
               Servicios
             </Link>
-            <Link href="#consulta" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
+            <Link href="#consulta" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">
               Consulta
             </Link>
-            <Link href="#contacto" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
+            <Link href="#contacto" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">
               Contacto
             </Link>
             <Button
@@ -239,9 +284,14 @@ export default function JurisCabaLanding() {
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <div className="space-y-8">
               <div className="space-y-6">
-                <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium">
-                  <Award className="h-4 w-4" />
-                  <span>15+ años de experiencia legal</span>
+                {/* Modify the hero badge to use the rotating text */}
+                {/* Find the div with "inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium" */}
+                {/* Replace its content with the dynamic text and icon: */}
+                <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium overflow-hidden relative h-8">
+                  <CurrentHeroIcon className="h-4 w-4 flex-shrink-0" />
+                  <span key={currentHeroTextIndex} className={`transition-opacity duration-300 ${heroTextAnimation}`}>
+                    {currentHeroText}
+                  </span>
                 </div>
                 <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 leading-tight tracking-tight">
                   Defendemos tus
@@ -258,7 +308,7 @@ export default function JurisCabaLanding() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
                   size="lg"
-                  className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-xl text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-xl text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                   onClick={() => window.open("https://koalendar.com/e/juriscaba", "_blank")}
                 >
                   <Calendar className="h-5 w-5 mr-2" />
@@ -268,7 +318,7 @@ export default function JurisCabaLanding() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="border-2 border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-4 rounded-xl text-lg font-medium bg-transparent"
+                    className="border-2 border-slate-300 text-slate-700 hover:border-blue-600 hover:bg-blue-50 hover:text-blue-600 px-8 py-4 rounded-xl text-lg font-medium bg-transparent transition-colors duration-300"
                   >
                     Conocer Servicios
                   </Button>
@@ -277,6 +327,8 @@ export default function JurisCabaLanding() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+              {/* Revert the statistics section in the Hero Section */}
+              {/* Replace the <RotatingStats /> component with the original static divs: */}
               <div className="text-center space-y-2">
                 <div className="text-4xl font-bold text-blue-600">
                   <AnimatedCounter from={0} to={500} duration={2000} suffix="+" />
@@ -288,7 +340,7 @@ export default function JurisCabaLanding() {
                 <div className="text-slate-600 font-medium">Años de experiencia</div>
               </div>
               <div className="text-center space-y-2">
-                <div className="text-4xl font-bold text-blue-600 animate-blink">24/7</div>
+                <div className="text-4xl font-bold text-blue-600">24/7</div>
                 <div className="text-slate-600 font-medium">Atención urgencias</div>
               </div>
             </div>
@@ -352,7 +404,7 @@ export default function JurisCabaLanding() {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <div className="space-y-6">
-              <h2 className="text-4xl lg:text-5xl font-bold text-white tracking-tight">
+              <h2 className="text-4xl lg:text-5xl font-bold text-blue-600 tracking-tight">
                 ¿Necesitás asesoramiento legal?
               </h2>
               <p className="text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
@@ -416,23 +468,24 @@ export default function JurisCabaLanding() {
                 <div className="flex items-center justify-center lg:justify-start space-x-4">
                   <Link
                     href="https://wa.me/5491161179711"
-                    className="p-3 bg-slate-100 rounded-xl hover:bg-slate-200 text-slate-700 transition-all duration-300 shadow-md hover:shadow-lg"
+                    className="group p-3 bg-slate-50 rounded-xl hover:bg-blue-100 transition-all duration-300 shadow-md hover:shadow-lg"
                     target="_blank"
                   >
-                    <Phone className="h-5 w-5" /> {/* Usar Phone de Lucide para WhatsApp */}
+                    <Phone className="h-5 w-5 text-slate-600 group-hover:text-blue-600" />{" "}
+                    {/* Usar Phone de Lucide para WhatsApp */}
                   </Link>
                   <Link
                     href="https://instagram.com/juriscaba"
-                    className="p-3 bg-slate-100 rounded-xl hover:bg-slate-200 text-slate-700 transition-all duration-300 shadow-md hover:shadow-lg"
+                    className="group p-3 bg-slate-50 rounded-xl hover:bg-blue-100 transition-all duration-300 shadow-md hover:shadow-lg"
                     target="_blank"
                   >
-                    <Instagram className="h-5 w-5" />
+                    <Instagram className="h-5 w-5 text-slate-600 group-hover:text-blue-600" />
                   </Link>
                   <Link
                     href="mailto:info@juriscaba.com.ar"
-                    className="p-3 bg-slate-100 rounded-xl hover:bg-slate-200 text-slate-700 transition-all duration-300 shadow-md hover:shadow-lg"
+                    className="group p-3 bg-slate-50 rounded-xl hover:bg-blue-100 transition-all duration-300 shadow-md hover:shadow-lg"
                   >
-                    <Mail className="h-5 w-5" />
+                    <Mail className="h-5 w-5 text-slate-600 group-hover:text-blue-600" />
                   </Link>
                 </div>
 

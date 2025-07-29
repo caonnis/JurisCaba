@@ -89,20 +89,6 @@
   }
 }
 
-@keyframes blink {
-  0%,
-  100% {
-    color: var(--tw-color-blue-600); /* Tailwind blue-600 */
-  }
-  50% {
-    color: var(--tw-color-slate-900); /* Tailwind slate-900 */
-  }
-}
-
-.animate-blink {
-  animation: blink 2s infinite;
-}
-
 /* Animaciones al scroll */
 @keyframes fade-in-up {
   from {
