@@ -11,9 +11,52 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "Juris Caba", // Título actualizado
-  description: "Landing page for Juris Caba",
-  generator: "v0.dev",
+  title: "Juris Caba - Abogados en Buenos Aires | Defensa Legal Integral", // Título actualizado y optimizado para SEO
+  description:
+    "Estudio jurídico en CABA especializado en Derecho Civil, Penal, Laboral, Comercial, Familia e Inmobiliario. Asesoramiento legal integral y defensa de tus derechos en la Ciudad Autónoma de Buenos Aires.", // Descripción detallada y optimizada
+  keywords:
+    "abogados, derecho, legal, CABA, Buenos Aires, civil, penal, laboral, comercial, familia, inmobiliario, asesoramiento legal, estudio jurídico, defensa de derechos", // Palabras clave relevantes
+  authors: [{ name: "Juris Caba" }],
+  creator: "Juris Caba",
+  publisher: "Juris Caba",
+  openGraph: {
+    title: "Juris Caba - Abogados en Buenos Aires | Defensa Legal Integral",
+    description:
+      "Estudio jurídico en CABA especializado en Derecho Civil, Penal, Laboral, Comercial, Familia e Inmobiliario. Asesoramiento legal integral y defensa de tus derechos en la Ciudad Autónoma de Buenos Aires.",
+    url: "https://www.juriscaba.com", // Asegúrate de que esta URL sea la de tu sitio web
+    siteName: "Juris Caba",
+    images: [
+      {
+        url: "/placeholder.svg?height=630&width=1200", // Imagen para compartir en redes sociales
+        width: 1200,
+        height: 630,
+        alt: "Juris Caba - Abogados en Buenos Aires",
+      },
+    ],
+    locale: "es_AR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Juris Caba - Abogados en Buenos Aires | Defensa Legal Integral",
+    description:
+      "Estudio jurídico en CABA especializado en Derecho Civil, Penal, Laboral, Comercial, Familia e Inmobiliario. Asesoramiento legal integral y defensa de tus derechos en la Ciudad Autónoma de Buenos Aires.",
+    images: ["/placeholder.svg?height=675&width=1200"], // Imagen para Twitter
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-snippet": -1,
+    },
+  },,
+  // Add other relevant metadata as needed
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
