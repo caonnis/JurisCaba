@@ -13,6 +13,7 @@ import {
   Mail,
   MapPin,
   Instagram,
+  Linkedin,
   Calendar,
   Award,
   Clock,
@@ -466,7 +467,7 @@ export default function JurisCabaLanding() {
               <h3 className="text-xl font-bold text-slate-900">Contacto</h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-center lg:justify-start space-x-4">
-                  <Link
+                 <Link
                     href="https://wa.me/5491161179711"
                     className="group p-3 bg-slate-50 rounded-xl hover:bg-blue-100 transition-all duration-300 shadow-md hover:shadow-lg"
                     target="_blank"
@@ -474,6 +475,7 @@ export default function JurisCabaLanding() {
                     <Phone className="h-5 w-5 text-slate-600 group-hover:text-blue-600" />{" "}
                     {/* Usar Phone de Lucide para WhatsApp */}
                   </Link>
+                  
                   <Link
                     href="https://instagram.com/juriscaba"
                     className="group p-3 bg-slate-50 rounded-xl hover:bg-blue-100 transition-all duration-300 shadow-md hover:shadow-lg"
@@ -481,12 +483,22 @@ export default function JurisCabaLanding() {
                   >
                     <Instagram className="h-5 w-5 text-slate-600 group-hover:text-blue-600" />
                   </Link>
+                  
+                  <Link
+                    href="https://linkedin.com/in/juriscaba"
+                    className="group p-3 bg-slate-50 rounded-xl hover:bg-blue-100 transition-all duration-300 shadow-md hover:shadow-lg"
+                    target="_blank"
+                  >
+                    <Linkedin className="h-5 w-5 text-slate-600 group-hover:text-blue-600" />
+                  </Link>
+                  
                   <Link
                     href="mailto:info@juriscaba.com.ar"
                     className="group p-3 bg-slate-50 rounded-xl hover:bg-blue-100 transition-all duration-300 shadow-md hover:shadow-lg"
                   >
                     <Mail className="h-5 w-5 text-slate-600 group-hover:text-blue-600" />
                   </Link>
+
                 </div>
 
                 <div className="flex items-center justify-center lg:justify-start space-x-3 pt-2">
