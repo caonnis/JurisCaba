@@ -54,9 +54,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
       "max-snippet": -1,
     },
-  },,
+  },
   // Add other relevant metadata as needed
-    generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export default function RootLayout({
