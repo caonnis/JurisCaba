@@ -73,7 +73,7 @@ const services = [
   },
   {
     icon: Building,
-    title: "Derecho Comercial",
+    title: "Derecho Corporativo",
     description: "Mantenimiento, actualización y custodia de libros societarios",
     details:
       "Mantenimiento y actualización de libros societarios, legalización y custodia documental, dirigido a S.A., SAS, SRL y otras sociedades, asegurando cumplimiento normativo y seguridad jurídica.",
