@@ -76,12 +76,12 @@ const services = [
     title: "Derecho Comercial",
     description: "Mantenimiento, actualización y custodia de libros societarios",
     details:
-      "Mantenimiento y actualización de libros societarios, legalización y custodia documental, dirigido a S.A., SAS, SRL y otras sociedades, asegurando cumplimiento normativo y seguridad jurídica",
+      "Mantenimiento y actualización de libros societarios, legalización y custodia documental, dirigido a S.A., SAS, SRL y otras sociedades, asegurando cumplimiento normativo y seguridad jurídica.",
     features: [
       "Redacción y transcripción de actas de asamblea y reuniones de directorio",
-      "Registro de modificaciones societarias (cambios de autoridades, aumentos de capital, reformas estatutarias, etc.)",
+      "Registro de modificaciones societarias (autoridades, capital, estatutos, etc)",
       "Actualización del Libro de Registro de Accionistas y/o Socios",
-      "Asistencia en la legalización de libros ante el Registro Público",
+      "Legalización, custodia y control del cumplimiento de obligaciones societarias y documentales",
     ],
   },
   {
