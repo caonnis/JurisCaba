@@ -74,14 +74,14 @@ const services = [
   {
     icon: Building,
     title: "Derecho Comercial",
-    description: "Sociedades, contratos comerciales, concursos y quiebras",
+    description: "Mantenimiento, actualización y custodia de libros societarios",
     details:
-      "Constitución y reestructuración de sociedades, contratos comerciales, fusiones y adquisiciones, procesos concursales, y asesoramiento integral para empresas de todos los tamaños.",
+      "Mantenimiento y actualización de libros societarios, legalización y custodia documental, dirigido a S.A., SAS, SRL y otras sociedades, asegurando cumplimiento normativo y seguridad jurídica",
     features: [
-      "Constitución y disolución de sociedades",
-      "Redacción de contratos comerciales",
-      "Asesoramiento en fusiones y adquisiciones",
-      "Gestión de concursos y quiebras",
+      "Redacción y transcripción de actas de asamblea y reuniones de directorio",
+      "Registro de modificaciones societarias (cambios de autoridades, aumentos de capital, reformas estatutarias, etc.)",
+      "Actualización del Libro de Registro de Accionistas y/o Socios",
+      "Asistencia en la legalización de libros ante el Registro Público",
     ],
   },
   {
