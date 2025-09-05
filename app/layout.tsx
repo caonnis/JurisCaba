@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     },
   },,
   // Add other relevant metadata as needed
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
