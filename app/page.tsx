@@ -78,10 +78,10 @@ const services = [
     details:
       "Mantenimiento y actualización de libros societarios, legalización y custodia documental, dirigido a S.A., SAS, SRL y otras sociedades, asegurando cumplimiento normativo y seguridad jurídica.",
     features: [
-      "Redacción y transcripción de actas de asamblea y reuniones de directorio",
-      "Registro de modificaciones societarias (autoridades, capital, estatutos, etc)",
-      "Actualización del Libro de Registro de Accionistas y/o Socios",
-      "Legalización, custodia y control del cumplimiento de obligaciones societarias y documentales",
+      "Constitución de sociedades",
+      "Registración de sociedades extranjeras",
+      "Confección de Actas, copiado y custodia de libros societarios",
+      "Trámites Registrales en general frente a IGJ",
     ],
   },
   {
