@@ -76,7 +76,7 @@ const services = [
     title: "Derecho Corporativo",
     description: "Mantenimiento, actualización y custodia de libros societarios",
     details:
-      "Mantenimiento y actualización de libros societarios, legalización y custodia documental, dirigido a S.A., SAS, SRL y otras sociedades, asegurando cumplimiento normativo y seguridad jurídica.",
+      "Gestión societaria integral para que nuestros clientes cumplan con todas las obligaciones societarias frente al organismo de control y puedan ocuparse únicamente de su giro comercial.",
     features: [
       "Constitución de sociedades",
       "Registración de sociedades extranjeras",
