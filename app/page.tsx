@@ -20,6 +20,7 @@ import {
   Award,
   Clock,
   CheckCircle,
+  FileText,
 } from "lucide-react"
 import Link from "next/link"
 import { useState, useEffect } from "react"
