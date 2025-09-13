@@ -32,17 +32,30 @@ import { ChevronDown, ChevronUp } from "lucide-react" // Asegúrate de que estos
 import { RotatingText } from "@/components/rotating-text"
 
 const services = [
-  {
-    icon: Scale,
-    title: "Derecho Civil",
-    description: "Contratos, responsabilidad civil, daños y perjuicios",
+   {
+    icon: Building,
+    title: "Derecho Corporativo",
+    description: "Mantenimiento, actualización y custodia de libros societarios",
     details:
-      "Asesoramiento integral en contratos civiles, responsabilidad extracontractual, daños y perjuicios, sucesiones, y todo tipo de conflictos entre particulares. Contamos con amplia experiencia en negociación y litigio.",
+      "Gestión societaria integral para que nuestros clientes cumplan con todas las obligaciones societarias frente al organismo de control y puedan ocuparse únicamente de su giro comercial.",
+    features: [
+      "Constitución de sociedades",
+      "Registración de sociedades extranjeras",
+      "Confección de Actas, copiado y custodia de libros societarios",
+      "Trámites Registrales en general frente a IGJ",
+    ],
+  },
+  {
+    icon: FileText,
+    title: "Derecho Civil",
+    description: "Contratos, daños y perjuicios, responsabilidad civil",
+    details:
+      "Asesoramiento en materia civil, incluyendo redacción y revisión de contratos, reclamos por daños y perjuicios, responsabilidad contractual y extracontractual.",
     features: [
       "Redacción y revisión de contratos",
-      "Reclamaciones por daños y perjuicios",
-      "Gestión de sucesiones y herencias",
-      "Asesoramiento en responsabilidad civil",
+      "Juicios por daños y perjuicios",
+      "Responsabilidad civil contractual y extracontractual",
+      "Asesoramiento en obligaciones y contratos",
     ],
   },
   {
@@ -69,45 +82,6 @@ const services = [
       "Indemnizaciones por accidentes laborales",
       "Negociación de convenios colectivos",
       "Asesoramiento en relaciones laborales",
-    ],
-  },
-  {
-    icon: Building,
-    title: "Derecho Corporativo",
-    description: "Mantenimiento, actualización y custodia de libros societarios",
-    details:
-      "Gestión societaria integral para que nuestros clientes cumplan con todas las obligaciones societarias frente al organismo de control y puedan ocuparse únicamente de su giro comercial.",
-    features: [
-      "Constitución de sociedades",
-      "Registración de sociedades extranjeras",
-      "Confección de Actas, copiado y custodia de libros societarios",
-      "Trámites Registrales en general frente a IGJ",
-    ],
-  },
-  {
-    icon: Heart,
-    title: "Derecho de Familia",
-    description: "Divorcios, régimen de visitas, alimentos",
-    details:
-      "Asesoramiento en divorcios consensuados y contenciosos, régimen de comunicación con hijos menores, cuota alimentaria, violencia familiar, y adopciones. Priorizamos soluciones amigables.",
-    features: [
-      "Divorcios y separaciones",
-      "Régimen de visitas y tenencia",
-      "Cuota alimentaria y compensatoria",
-      "Adopciones y filiación",
-    ],
-  },
-  {
-    icon: Home,
-    title: "Derecho Inmobiliario",
-    description: "Compraventa, locaciones, consorcio, usucapión",
-    details:
-      "Asesoramiento en compraventa de inmuebles, contratos de locación, administración de consorcios, usucapión, subdivisiones, y todo tipo de operaciones inmobiliarias.",
-    features: [
-      "Contratos de compraventa y alquiler",
-      "Asesoramiento en consorcios",
-      "Juicios de usucapión",
-      "Estudios de títulos",
     ],
   },
 ]
