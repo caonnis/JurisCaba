@@ -1,21 +1,21 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Roboto } from "next/font/google" // Importar Roboto
+import { Roboto } from "next/font/google"
 import "./globals.css"
 
 // Configurar la fuente Roboto
 const roboto = Roboto({
-  weight: ["400", "700"], // Puedes ajustar los pesos según necesites
+  weight: ["400", "700"],
   subsets: ["latin"],
   variable: "--font-roboto",
 })
 
 export const metadata: Metadata = {
-  title: "Juris Caba - Abogados en Buenos Aires | Defensa Legal Integral", // Título optimizado para SEO
+  title: "Juris Caba - Abogados en Buenos Aires | Defensa Legal Integral",
   description:
-    "Estudio jurídico en CABA especializado en Derecho Corporativo, Civil, Penal & Laboral. Asesoramiento legal integral y defensa de tus derechos en la Ciudad Autónoma de Buenos Aires.", // Descripción detallada y optimizada
+    "Estudio jurídico en CABA especializado en Derecho Corporativo, Civil, Penal & Laboral. Asesoramiento legal integral y defensa de tus derechos en la Ciudad Autónoma de Buenos Aires.",
   keywords:
-    "abogados, derecho, legal, CABA, Buenos Aires, civil, penal, laboral, comercial, familia, inmobiliario, asesoramiento legal, estudio jurídico, defensa de derechos", // Palabras clave relevantes
+    "abogados, derecho, legal, CABA, Buenos Aires, civil, penal, laboral, comercial, familia, inmobiliario, asesoramiento legal, estudio jurídico, defensa de derechos",
   authors: [{ name: "Juris Caba" }],
   creator: "Juris Caba",
   publisher: "Juris Caba",
@@ -23,11 +23,11 @@ export const metadata: Metadata = {
     title: "Juris Caba - Abogados en Buenos Aires | Defensa Legal Integral",
     description:
       "Estudio jurídico en CABA especializado en Derecho Corporativo, Civil, Penal & Laboral. Asesoramiento legal integral y defensa de tus derechos en la Ciudad Autónoma de Buenos Aires.",
-    url: "https://www.juriscaba.com", // URL oficial del sitio
+    url: "https://www.juriscaba.com",
     siteName: "Juris Caba",
     images: [
       {
-        url: "/placeholder.svg?height=630&width=1200", // Imagen para compartir en redes sociales
+        url: "/placeholder.svg?height=630&width=1200",
         width: 1200,
         height: 630,
         alt: "Juris Caba - Abogados en Buenos Aires",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "Juris Caba - Abogados en Buenos Aires | Defensa Legal Integral",
     description:
       "Estudio jurídico en CABA especializado en Derecho Civil, Penal, Laboral, Comercial, Familia e Inmobiliario. Asesoramiento legal integral y defensa de tus derechos en la Ciudad Autónoma de Buenos Aires.",
-    images: ["/placeholder.svg?height=675&width=1200"], // Imagen para Twitter
+    images: ["/placeholder.svg?height=675&width=1200"],
   },
   robots: {
     index: true,
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://www.juriscaba.com", // 👈 CANÓNICA GLOBAL
+    canonical: "https://www.juriscaba.com",
   },
   generator: "v0.app",
 }
@@ -81,9 +81,15 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Favicon and Apple Touch Icon */}
+
+        {/* Favicons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={roboto.className}>{children}</body>
     </html>
