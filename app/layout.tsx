@@ -11,7 +11,7 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "Juris Caba - Abogados en Buenos Aires | Defensa Legal Integral", // Título actualizado y optimizado para SEO
+  title: "Juris Caba - Abogados en Buenos Aires | Defensa Legal Integral", // Título optimizado para SEO
   description:
     "Estudio jurídico en CABA especializado en Derecho Corporativo, Civil, Penal & Laboral. Asesoramiento legal integral y defensa de tus derechos en la Ciudad Autónoma de Buenos Aires.", // Descripción detallada y optimizada
   keywords:
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Juris Caba - Abogados en Buenos Aires | Defensa Legal Integral",
     description:
-      "Estudio jurídico en CABA especializado en Derecho Corporativo, Civil, Penal & Laboral. Asesoramiento legal integral y defensa de tus derechos en la Ciudad Autónoma de Buenos Aires.", // Descripción detallada y optimizada
-    url: "https://www.juriscaba.com", // Asegúrate de que esta URL sea la de tu sitio web
+      "Estudio jurídico en CABA especializado en Derecho Corporativo, Civil, Penal & Laboral. Asesoramiento legal integral y defensa de tus derechos en la Ciudad Autónoma de Buenos Aires.",
+    url: "https://www.juriscaba.com", // URL oficial del sitio
     siteName: "Juris Caba",
     images: [
       {
@@ -55,7 +55,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // Add other relevant metadata as needed
+  alternates: {
+    canonical: "https://www.juriscaba.com", // 👈 CANÓNICA GLOBAL
+  },
   generator: "v0.app",
 }
 
